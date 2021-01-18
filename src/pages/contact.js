@@ -1,7 +1,7 @@
-import React from "react";
-import { useFormik } from "formik";
+import React from "react"
+import { useFormik } from "formik"
 
-import styled from "styled-components";
+import styled from "styled-components"
 
 const ContactForm = () => {
   const formik = useFormik({
@@ -13,11 +13,11 @@ const ContactForm = () => {
     },
 
     onSubmit: values => {
-      console.log("submitted data: ", values);
+      console.log("submitted data: ", values)
     },
-  });
+  })
 
-  console.log("form values: ", formik.values);
+  console.log("form values: ", formik.values)
 
   return (
     <div>
@@ -26,7 +26,7 @@ const ContactForm = () => {
         name="contact form"
         method="post"
         data-netlify="true"
-        onSubmit={formik.handleSubmit}
+        onSubmit="submit"
       >
         <FormGroup>
           <label htmlFor="name">Name</label>
@@ -69,10 +69,10 @@ const ContactForm = () => {
         <button type="submit">Submit</button>
       </FormContainer>
     </div>
-  );
-};
+  )
+}
 
-export default ContactForm;
+export default ContactForm
 
 const FormContainer = styled.form`
   display: flex;
@@ -87,7 +87,7 @@ const FormContainer = styled.form`
     margin: 0 auto;
     background-color: darkgrey;
   }
-`;
+`
 
 const FormGroup = styled.div`
   display: flex;
@@ -105,4 +105,4 @@ const FormGroup = styled.div`
     font-size: 1rem;
     color: grey;
   }
-`;
+`
