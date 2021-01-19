@@ -24,7 +24,7 @@ const ContactForm = () => {
       <h1>Contact Form</h1>
       <FormContainer
         name="contact"
-        action="https://formspree.io/f/xnqowjdy"
+        action="https://formspree.io/f/xnqowjdy" // using formspree.io
         method="POST"
         onSubmit={formik.handleSubmit}
       >
