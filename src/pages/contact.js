@@ -23,7 +23,11 @@ const ContactForm = () => {
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", ...values }),
+        body: encode({
+          "form-name": "contact",
+          subject: "Contact Form Submission",
+          ...values,
+        }),
       })
         .then(() => alert("Success!"))
         .catch(error => alert(error))
@@ -44,7 +48,12 @@ const ContactForm = () => {
       >
         <FormGroup>
           <input type="hidden" name="form-name" value="contact" />
-
+          <input
+            type="hidden"
+            id="subject"
+            name="subject"
+            value="Default subject"
+          ></input>
           <label htmlFor="name">Name</label>
           <input
             type="text"
@@ -53,12 +62,6 @@ const ContactForm = () => {
             onChange={formik.handleChange}
             value={formik.values.name}
           />
-          <input
-            type="hidden"
-            id="subject"
-            name="subject"
-            value="Default subject"
-          ></input>
         </FormGroup>
         <FormGroup>
           <label htmlFor="email">Email</label>
