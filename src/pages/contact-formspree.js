@@ -28,7 +28,12 @@ const ContactForm = () => {
         method="POST"
       >
         <FormGroup>
-          <input type="hidden" name="form-name" value="contact" />
+          <input type="text" name="_gotcha" style="display:none" />
+          <input
+            type="hidden"
+            name="_subject"
+            value="SWA Contact Form Submission!"
+          />
           <input
             type="hidden"
             id="subject"
