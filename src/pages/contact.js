@@ -23,7 +23,7 @@ const ContactForm = () => {
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact form", values }),
+        body: encode({ "form-name": "contact", values }),
       })
         .then(() => alert("Success!"))
         .catch(error => alert(error))
@@ -36,11 +36,11 @@ const ContactForm = () => {
     <div>
       <h1>Contact Form</h1>
       <FormContainer
-        name="contact form"
+        name="contact"
         method="post"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        onSubmit={formik.handleSubmit}
+        onSubmit={handleSubmit}
       >
         <FormGroup>
           <input type="hidden" name="form-name" value="contact" />
