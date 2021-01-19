@@ -26,7 +26,6 @@ const ContactForm = () => {
         name="contact"
         action="https://formspree.io/f/xnqowjdy" // using formspree.io
         method="POST"
-        onSubmit={formik.handleSubmit}
       >
         <FormGroup>
           <input type="hidden" name="form-name" value="contact" />
