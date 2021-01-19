@@ -3,6 +3,12 @@ import { useFormik } from "formik"
 
 import styled from "styled-components"
 
+const encode = data => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
+}
+
 const ContactForm = () => {
   const formik = useFormik({
     initialValues: {
@@ -14,6 +20,13 @@ const ContactForm = () => {
 
     onSubmit: values => {
       console.log("submitted data: ", values)
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", values }),
+      })
+        .then(() => alert("Success!"))
+        .catch(error => alert(error))
     },
   })
 
@@ -26,9 +39,11 @@ const ContactForm = () => {
         name="contact form"
         method="post"
         data-netlify="true"
-        onSubmit="submit"
+        data-netlify-honeypot="bot-field"
+        onSubmit={formik.handleSubmit}
       >
         <FormGroup>
+          <input type="hidden" name="form-name" value="contact" />
           <label htmlFor="name">Name</label>
           <input
             type="text"
