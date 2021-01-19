@@ -53,6 +53,12 @@ const ContactForm = () => {
             onChange={formik.handleChange}
             value={formik.values.name}
           />
+          <input
+            type="hidden"
+            id="subject"
+            name="subject"
+            value="Default subject"
+          ></input>
         </FormGroup>
         <FormGroup>
           <label htmlFor="email">Email</label>
