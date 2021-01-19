@@ -3,13 +3,6 @@ import { useFormik } from "formik"
 
 import styled from "styled-components"
 
-// for Netlify Forms
-const encode = data => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&")
-}
-
 const ContactForm = () => {
   const formik = useFormik({
     initialValues: {
@@ -21,17 +14,6 @@ const ContactForm = () => {
 
     onSubmit: values => {
       console.log("submitted data: ", values)
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({
-          "form-name": "contact",
-          subject: "Contact Form Submission", // this is for email subject header
-          ...values,
-        }),
-      })
-        .then(() => alert("Success!"))
-        .catch(error => alert(error))
     },
   })
 
@@ -42,9 +24,8 @@ const ContactForm = () => {
       <h1>Contact Form</h1>
       <FormContainer
         name="contact"
-        method="post"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
+        action="https://formspree.io/f/xnqowjdy"
+        method="POST"
         onSubmit={formik.handleSubmit}
       >
         <FormGroup>
