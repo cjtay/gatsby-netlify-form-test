@@ -40,7 +40,7 @@ const ContactForm = () => {
         method="post"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        onSubmit={handleSubmit}
+        onSubmit={formik.handleSubmit}
       >
         <FormGroup>
           <input type="hidden" name="form-name" value="contact" />
