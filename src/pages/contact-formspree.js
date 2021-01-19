@@ -28,7 +28,7 @@ const ContactForm = () => {
         method="POST"
       >
         <FormGroup>
-          <input type="text" name="_gotcha" style="display:none" />
+          <input type="text" name="_gotcha" style={{ display: "none" }} />
           <input
             type="hidden"
             name="_subject"
