@@ -44,9 +44,11 @@ const ContactForm = () => {
       >
         <FormGroup>
           <input type="hidden" name="form-name" value="contact" />
+
           <input
             type="hidden"
             name="subject"
+            id="subject"
             value="SWA Contact Enquiry Form Submission"
           />
           <label htmlFor="name">Name</label>
